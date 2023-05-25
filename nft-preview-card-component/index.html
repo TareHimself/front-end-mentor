@@ -34,15 +34,23 @@
       --color-card-image-hover: #17f1ea6c;
       --color-card-text: #6f88a7;
       --color-card-paragraph: hsl(215, 51%, 70%);
-      --width-card: 325, px;
+      --width-card: 325px;
       --br-card: 5px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       background-color: var(--color-body-bg);
       min-height: 100vh;
       margin: 0;
+    }
+
+    .content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     h2 {
@@ -180,39 +188,41 @@
 
 <body>
 
-  <div class="card">
-    <div class="card-preview">
-      <img alt="preview" src="./images/image-equilibrium.jpg">
-      <div class="card-preview-overlay">
-        <object class="icon" data="./images/icon-view.svg" alt="views"></object>
+  <div class="content">
+    <div class="card">
+      <div class="card-preview">
+        <img alt="preview" src="./images/image-equilibrium.jpg">
+        <div class="card-preview-overlay">
+          <img class="icon" src="./images/icon-view.svg" alt="views">
+        </div>
       </div>
-    </div>
-    <div class="card-info">
-      <h2><a href="">Equilibrium #3429</a></h2>
-      <p>Our Equilibrium collection promotes balance and calm.</p>
-      <span class="card-info-stats">
-        <span><object class="icon" data="./images/icon-ethereum.svg" alt="ethereum"></object>
-          <p>
-            <b>0.041 ETH</b>
-          </p>
-        </span>
-        <span><object class="icon" data="./images/icon-clock.svg" alt="time"></object>
-          <p>3 days left</p>
-        </span>
+      <div class="card-info">
+        <h2><a href="#">Equilibrium #3429</a></h2>
+        <p>Our Equilibrium collection promotes balance and calm.</p>
+        <span class="card-info-stats">
+          <span><img class="icon" src="./images/icon-ethereum.svg" alt="ethereum">
+            <p>
+              <b>0.041 ETH</b>
+            </p>
+          </span>
+          <span><img class="icon" src="./images/icon-clock.svg" alt="time">
+            <p>3 days left</p>
+          </span>
 
-      </span>
-    </div>
-    <div class="card-sep"></div>
-    <div class="card-footer">
-      <img src="./images/image-avatar.png" alt="avatar">
-      <p>Creation of <a href="">Jules Wyvern</a></p>
+        </span>
+      </div>
+      <div class="card-sep"></div>
+      <div class="card-footer">
+        <img src="./images/image-avatar.png" alt="avatar">
+        <p>Creation of <a href="#">Jules Wyvern</a></p>
+      </div>
     </div>
   </div>
 
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+  <div class="attribution">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://www.frontendmentor.io/profile/TareHimself">TareHimself</a>.</p>
+  </div>
 </body>
 
 </html>
