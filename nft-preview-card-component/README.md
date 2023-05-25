@@ -27,7 +27,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Click Me](https://github.com/TareHimself/front-end-mentor/tree/master/nft-preview-card-component)
-- Live Site URL: [Click Me](http://htmlpreview.github.io/?https://raw.githubusercontent.com/TareHimself/front-end-mentor/master/nft-preview-card-component/index.html)
+- Live Site URL: [Click Me](https://nft-preview-card-component.oyintareebelo.repl.co)
 
 ### Built with
 
