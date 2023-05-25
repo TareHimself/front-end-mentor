@@ -35,7 +35,8 @@
       --color-card-text: #6f88a7;
       --color-card-paragraph: hsl(215, 51%, 70%);
       --width-card: 325px;
-      --br-card: 5px;
+      --br-card: 10px;
+      --br-image: 5px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -89,7 +90,7 @@
       width: var(--content-width);
       overflow: hidden;
       margin: 6.5% 0;
-      border-radius: var(--br-card);
+      border-radius: var(--br-image);
       position: relative;
     }
 
@@ -177,7 +178,7 @@
 
     a {
       text-decoration: none;
-      color: inherit;
+      color: var(--color-card-title);
     }
 
     a:hover {
