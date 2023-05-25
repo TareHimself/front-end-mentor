@@ -1,33 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | NFT preview card component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+    body {
+      --color-body-bg: hsl(217, 54%, 11%);
+      --color-card-bg: hsl(216, 50%, 16%);
+      --color-line-bg: hsl(215, 32%, 27%);
+      --color-card-title: hsl(0, 0%, 100%);
+      --color-bold-text: hsl(178, 100%, 50%);
+      --color-card-hover: #17f1eb;
+      --color-card-image-hover: #17f1ea6c;
+      --color-card-text: #6f88a7;
+      --color-card-paragraph: hsl(215, 51%, 70%);
+      --width-card: 325, px;
+      --br-card: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--color-body-bg);
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--color-card-title);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+    }
+
+
+    p {
+      margin: 0;
+      color: var(--color-card-paragraph);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+    }
+
+    b {
+      color: var(--color-bold-text);
+    }
+
+
+    .card {
+      --content-width: 87%;
+      display: flex;
+      flex-direction: column;
+      max-width: var(--width-card);
+      background-color: var(--color-card-bg);
+      border-radius: var(--br-card);
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .card-preview {
+      display: flex;
+      width: var(--content-width);
+      overflow: hidden;
+      margin: 6.5% 0;
+      border-radius: var(--br-card);
+      position: relative;
+    }
+
+    .card-preview img {
+      width: 100%;
+      aspect-ratio: 1;
+    }
+
+    .card-preview-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background-color: var(--color-card-image-hover);
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+
+    .card-preview:hover .card-preview-overlay {
+      opacity: 1;
+    }
+
+    .card-info {
+      display: flex;
+      flex-direction: column;
+      width: var(--content-width);
+      gap: 20px;
+    }
+
+    .card-sep {
+      display: flex;
+      width: var(--content-width);
+      background-color: var(--color-line-bg);
+      height: 0.1px;
+      margin: 20px 0;
+    }
+
+    .card-info-stats {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-info-stats span {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+
+    .card-info-stats .icon {
+      margin-right: 6px;
+
+    }
+
+
+    .card-footer {
+      display: flex;
+      width: var(--content-width);
+      box-sizing: border-box;
+      margin-bottom: 6.5%;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .card-footer img {
+      display: flex;
+      aspect-ratio: 1;
+      width: 30px;
+      border: 1px solid var(--color-card-title);
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .card-footer p {
+      font-weight: 300;
+    }
+
+    .icon[alt='ethereum'] {
+      transform: scale(0.8);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      color: var(--color-card-hover);
+    }
   </style>
 </head>
+
 <body>
 
-  Equilibrium #3429
+  <div class="card">
+    <div class="card-preview">
+      <img alt="preview" src="./images/image-equilibrium.jpg">
+      <div class="card-preview-overlay">
+        <object class="icon" data="./images/icon-view.svg" alt="views"></object>
+      </div>
+    </div>
+    <div class="card-info">
+      <h2><a href="">Equilibrium #3429</a></h2>
+      <p>Our Equilibrium collection promotes balance and calm.</p>
+      <span class="card-info-stats">
+        <span><object class="icon" data="./images/icon-ethereum.svg" alt="ethereum"></object>
+          <p>
+            <b>0.041 ETH</b>
+          </p>
+        </span>
+        <span><object class="icon" data="./images/icon-clock.svg" alt="time"></object>
+          <p>3 days left</p>
+        </span>
 
-  Our Equilibrium collection promotes balance and calm.
-
-  0.041 ETH
-  3 days left
-  
-  Creation of Jules Wyvern
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      </span>
+    </div>
+    <div class="card-sep"></div>
+    <div class="card-footer">
+      <img src="./images/image-avatar.png" alt="avatar">
+      <p>Creation of <a href="">Jules Wyvern</a></p>
+    </div>
   </div>
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
 </body>
+
 </html>
