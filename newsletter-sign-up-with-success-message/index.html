@@ -23,48 +23,258 @@
   </style>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+    dialog,
+    body {
+      --color-body-bg: hsl(234, 29%, 20%);
+      --color-card-bg: hsl(0, 0%, 100%);
+      --color-text: hsl(235, 18%, 26%);
+      --color-button: linear-gradient(to right, #232742, #232742);
+      --color-button-hover: linear-gradient(to right, #ff517a, #fe673b);
+      --input-height: 50px;
+      --input-border-radius: 7px;
+    }
+
+    body {
+
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-body-bg);
+      min-height: 100vh;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--color-card-title);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 55px;
+      color: var(--color-text);
+    }
+
+
+    p {
+      margin: 0;
+      color: var(--color-card-paragraph);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--color-text)
+    }
+
+    button {
+      height: var(--input-height);
+      border-radius: var(--input-border-radius);
+      border: none;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      background: var(--color-button);
+      color: white;
+      font-size: 15px;
+      transition: all ease-in-out 0.2s;
+    }
+
+    button:hover {
+      background: var(--color-button-hover);
+    }
+
+    #success-modal {
+      width: 521px;
+      aspect-ratio: 1;
+    }
+
+    #success-modal::backdrop {
+      background-color: hsl(234, 29%, 20%);
+    }
+
+    .success-modal-content {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+    }
+
+    #success-modal-email {
+      font-weight: bold;
+    }
+
+    .card {
+      display: flex;
+      height: 643px;
+      aspect-ratio: 1/0.69;
+      background-color: var(--color-card-bg);
+      border-radius: 40px;
+      padding: 25px;
+      box-sizing: border-box;
+      gap: 50px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+
+
+    .card-data {
+      display: flex;
+      flex-direction: column;
+      width: 375px;
+      margin: 0 auto;
+    }
+
+    .card-data p {
+      margin: 20px 0;
+    }
+
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-direction: row;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      color: var(--color-text);
+    }
+
+    .card-art {
+      background: url('./assets/images/illustration-sign-up-desktop.svg');
+      display: flex;
+      height: 100%;
+      aspect-ratio: 400/593;
+    }
+
+    .card-input {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+
+    }
+
+    .card-input p {
+      font-weight: bold;
+      font-size: 11px;
+      margin: 0;
+
+    }
+
+    .card-input input[type='text'] {
+      text-decoration: none;
+      height: var(--input-height);
+      font-weight: 300;
+      font-family: 'Roboto', sans-serif;
+      border-radius: var(--input-border-radius);
+      border: 1px solid hsl(231, 7%, 60%);
+      box-sizing: border-box;
+      margin: 5px 0;
+      color: hsl(231, 7%, 60%);
+      padding: 0 18px;
+      transition: all ease-in-out 0.2s;
+    }
+
+    .card-input input[type='text']::placeholder {
+      color: hsl(231, 7%, 60%);
+    }
+
+    .card-input input[type='text']:hover,
+    .card-input input[type='text']:focus {
+      color: var(--color-text);
+      border: 1px solid #232742;
+    }
+
+    .card-input input[type='text']:hover::placeholder,
+    .card-input input[type='text']:focus::placeholder {
+      color: var(--color-text);
+    }
+
+    .card-input button {
+      margin-top: 20px;
+    }
+
+
+    object {
+      --size: 18px;
+      width: var(--size);
+      height: var(--size);
+    }
   </style>
 
   <script>
+    function openModal(text) {
+      console.log("SHOWING MODAL", text)
+      document.getElementById("success-modal-email").textContent = text;
+      document.getElementById('success-modal')?.showModal();
+    }
 
+    function showInvalidEmailError() {
+      alert("GET YOUR EMAIL UP BOI")
+    }
+
+    function trySubscribe(e) {
+
+      const emailText = document.getElementById('email-input')?.value || ''
+      const match = emailText.match(/.*@.+?\..*/)
+      if (!match) {
+        showInvalidEmailError();
+        return false;
+      }
+
+      openModal(emailText);
+      return false;
+    }
   </script>
 </head>
 
 <body>
+  <dialog id="success-modal">
+    <h1>Thanks for subscribing!</h1>
+    <div class="success-modal-content">
+      <p>A confirmation email has been sent to <span id="success-modal-email">ash@loremcompany.com</span>.
+        Please open it and click the button inside to confirm your subscription.</p>
+      <button>Dismiss message</button>
+    </div>
+  </dialog>
+  <form class="card" onsubmit="return trySubscribe()">
+    <div class="card-data">
+      <h2>Stay Updated!</h2>
+      <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
-  <!-- Sign-up form start -->
+      <ul class="card-list">
+        <li><object data="./assets/images/icon-list.svg" aria-label="bullet"></object>Product discovery and building
+          what
+          matters</li>
+        <li><object data="./assets/images/icon-list.svg" aria-label="bullet"></object>Measuring to ensure updates are a
+          success</li>
+        <li><object data="./assets/images/icon-list.svg" aria-label="bullet"></object>And much more!</li>
+      </ul>
 
-  Stay updated!
+      <div class="card-input">
+        <b>
+          <p>Email address</p>
+        </b>
+        <input type="text" placeholder="email@company.com" id="email-input" />
+        <button>Subscribe to monthly newsletter</button>
+      </div>
 
-  Join 60,000+ product managers receiving monthly updates on:
-
-  Product discovery and building what matters
-  Measuring to ensure updates are a success
-  And much more!
-
-  Email address
-  email@company.com
-
-  Subscribe to monthly newsletter
-
-  <!-- Sign-up form end -->
-
-  <!-- Success message start -->
-
-  Thanks for subscribing!
-
-  A confirmation email has been sent to ash@loremcompany.com.
-  Please open it and click the button inside to confirm your subscription.
-
-  Dismiss message
-
-  <!-- Success message end -->
-
-  <div class="attribution">
+    </div>
+    <div class="card-art">
+    </div>
+  </form>
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
 
 </html>
